@@ -3,51 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Вертикальная галерея | 1–14</title>
+  <title>Галерея | Связь со мной</title>
+  <!-- Font Awesome 6 (бесплатные иконки) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* Глобальный сброс + чёрный фон на весь экран */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
+    body, html {
       background-color: #000000;
       min-height: 100vh;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     }
 
-    /* Центрирующий контейнер для колонки изображений */
+    /* контейнер галереи: центровка по горизонтали, ограничение ширины на ПК */
     .gallery {
       display: flex;
       flex-direction: column;
-      align-items: center;      /* центрирование по горизонтали */
-      gap: 4px;                /* точный отступ 4px между картинками */
+      align-items: center;
+      gap: 4px;
+      max-width: 1000px;    /* комфортная ширина для десктопа (16:9 не растягивает) */
+      margin: 0 auto;       /* центрирование блока */
       padding: 0;
       width: 100%;
     }
 
-    /* Каждое изображение: безопасное масштабирование, lazy load, плавность */
+    /* стили для изображений */
     .gallery img {
       display: block;
       max-width: 100%;
-      height: auto;            /* сохраняем пропорции 3200×5735 */
+      height: auto;
       width: auto;
-      object-fit: contain;    /* гарантирует, что изображение не обрезается */
-      background-color: #000000; /* на случай прозрачности или загрузки */
+      background-color: #000000;
     }
 
-    /* Лёгкая адаптация для очень узких экранов — без лишних отступов */
-    @media (max-width: 480px) {
-      .gallery {
-        gap: 4px;             /* отступ остаётся 4px даже на телефонах */
+    /* блок с кнопками */
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      max-width: 1000px;
+      margin: 32px auto 48px auto;
+      padding: 0 16px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1e1e1e;
+      backdrop-filter: blur(2px);
+      padding: 12px 24px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: 1px solid #333;
+      color: #ffffff;
+    }
+
+    .contact-btn i {
+      font-size: 1.4rem;
+    }
+
+    /* цвета иконок/фона при наведении для узнаваемости */
+    .contact-btn.telegram:hover {
+      background: #0088cc;
+      border-color: #0088cc;
+    }
+    .contact-btn.phone:hover {
+      background: #2e7d32;
+      border-color: #2e7d32;
+    }
+    .contact-btn.max:hover {
+      background: #6c2b9b;
+      border-color: #6c2b9b;
+    }
+
+    /* для мобильных: кнопки почти во всю ширину */
+    @media (max-width: 640px) {
+      .contact-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin: 24px auto 32px auto;
       }
+      .contact-btn {
+        justify-content: center;
+        padding: 14px 20px;
+        font-size: 1rem;
+      }
+      .contact-btn i {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* крошечный отступ снизу для эстетики */
+    body {
+      padding-bottom: 20px;
     }
   </style>
 </head>
 <body>
   <div class="gallery">
-    <!-- 14 изображений, имена строго 1.jpg … 14.jpg (лежат в одной папке с index.html) -->
+    <!-- 14 изображений, имена 1.jpg ... 14.jpg -->
     <img src="1.jpg"  alt="Изображение 1"  loading="lazy" width="3200" height="5735">
     <img src="2.jpg"  alt="Изображение 2"  loading="lazy" width="3200" height="5735">
     <img src="3.jpg"  alt="Изображение 3"  loading="lazy" width="3200" height="5735">
@@ -62,6 +126,19 @@
     <img src="12.jpg" alt="Изображение 12" loading="lazy" width="3200" height="5735">
     <img src="13.jpg" alt="Изображение 13" loading="lazy" width="3200" height="5735">
     <img src="14.jpg" alt="Изображение 14" loading="lazy" width="3200" height="5735">
+  </div>
+
+  <!-- Кнопки для быстрой связи (дублируют информацию с 14.jpg, но теперь интерактивно) -->
+  <div class="contact-bar">
+    <a href="tel:+79604997229" class="contact-btn phone">
+      <i class="fas fa-phone-alt"></i> Позвонить
+    </a>
+    <a href="https://t.me/andrey_bizness" target="_blank" rel="noopener noreferrer" class="contact-btn telegram">
+      <i class="fab fa-telegram-plane"></i> Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOI3K-M3hjlDEEIskwGU7r3Yq8hRWBANKi1nQV9ejCw5MF1ltBo" target="_blank" rel="noopener noreferrer" class="contact-btn max">
+      <i class="fas fa-comment-dots"></i> Max
+    </a>
   </div>
 </body>
 </html>
