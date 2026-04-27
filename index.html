@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Вертикальная галерея | 1–14</title>
+  <style>
+    /* Глобальный сброс + чёрный фон на весь экран */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: #000000;
+      min-height: 100vh;
+    }
+
+    /* Центрирующий контейнер для колонки изображений */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;      /* центрирование по горизонтали */
+      gap: 4px;                /* точный отступ 4px между картинками */
+      padding: 0;
+      width: 100%;
+    }
+
+    /* Каждое изображение: безопасное масштабирование, lazy load, плавность */
+    .gallery img {
+      display: block;
+      max-width: 100%;
+      height: auto;            /* сохраняем пропорции 3200×5735 */
+      width: auto;
+      object-fit: contain;    /* гарантирует, что изображение не обрезается */
+      background-color: #000000; /* на случай прозрачности или загрузки */
+    }
+
+    /* Лёгкая адаптация для очень узких экранов — без лишних отступов */
+    @media (max-width: 480px) {
+      .gallery {
+        gap: 4px;             /* отступ остаётся 4px даже на телефонах */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <!-- 14 изображений, имена строго 1.jpg … 14.jpg (лежат в одной папке с index.html) -->
+    <img src="1.jpg"  alt="Изображение 1"  loading="lazy" width="3200" height="5735">
+    <img src="2.jpg"  alt="Изображение 2"  loading="lazy" width="3200" height="5735">
+    <img src="3.jpg"  alt="Изображение 3"  loading="lazy" width="3200" height="5735">
+    <img src="4.jpg"  alt="Изображение 4"  loading="lazy" width="3200" height="5735">
+    <img src="5.jpg"  alt="Изображение 5"  loading="lazy" width="3200" height="5735">
+    <img src="6.jpg"  alt="Изображение 6"  loading="lazy" width="3200" height="5735">
+    <img src="7.jpg"  alt="Изображение 7"  loading="lazy" width="3200" height="5735">
+    <img src="8.jpg"  alt="Изображение 8"  loading="lazy" width="3200" height="5735">
+    <img src="9.jpg"  alt="Изображение 9"  loading="lazy" width="3200" height="5735">
+    <img src="10.jpg" alt="Изображение 10" loading="lazy" width="3200" height="5735">
+    <img src="11.jpg" alt="Изображение 11" loading="lazy" width="3200" height="5735">
+    <img src="12.jpg" alt="Изображение 12" loading="lazy" width="3200" height="5735">
+    <img src="13.jpg" alt="Изображение 13" loading="lazy" width="3200" height="5735">
+    <img src="14.jpg" alt="Изображение 14" loading="lazy" width="3200" height="5735">
+  </div>
+</body>
+</html>
